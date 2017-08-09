@@ -1,0 +1,9 @@
+D:\Local\Dev\web\Angular\API\DemoSupportAPI\bin\Debug\netcoreapp1.1\DemoSupportAPI.deps.json
+D:\Local\Dev\web\Angular\API\DemoSupportAPI\bin\Debug\netcoreapp1.1\DemoSupportAPI.runtimeconfig.json
+D:\Local\Dev\web\Angular\API\DemoSupportAPI\bin\Debug\netcoreapp1.1\DemoSupportAPI.runtimeconfig.dev.json
+D:\Local\Dev\web\Angular\API\DemoSupportAPI\obj\Debug\netcoreapp1.1\DemoSupportAPI.csprojResolveAssemblyReference.cache
+D:\Local\Dev\web\Angular\API\DemoSupportAPI\obj\Debug\netcoreapp1.1\DemoSupportAPI.AssemblyInfo.cs
+D:\Local\Dev\web\Angular\API\DemoSupportAPI\bin\Debug\netcoreapp1.1\DemoSupportAPI.dll
+D:\Local\Dev\web\Angular\API\DemoSupportAPI\bin\Debug\netcoreapp1.1\DemoSupportAPI.pdb
+D:\Local\Dev\web\Angular\API\DemoSupportAPI\obj\Debug\netcoreapp1.1\DemoSupportAPI.dll
+D:\Local\Dev\web\Angular\API\DemoSupportAPI\obj\Debug\netcoreapp1.1\DemoSupportAPI.pdb

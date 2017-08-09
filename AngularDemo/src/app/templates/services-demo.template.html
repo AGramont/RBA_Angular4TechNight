@@ -1,0 +1,80 @@
+<rba-page-wrapper panel-title="Service Demo">
+    <aside>
+        <p>
+        UI is useful, but applications are usually about data.  And to access data,
+        we need <b>services</b>.  A service is a "component" that is usually, but not
+        always, a stateless singleton that can contain business logic, data access
+        or whatever other useful pieces of code that can be migrated from component
+        to component.
+        </p>
+        <p>
+        One of the primary functions of a service for data access.  Any service
+        that is scoped to the current module can be injected into a component
+        through the constructor.  <u>By default, this is a singleton instance</u>.  
+        In addition, the data that is being accessed is almost alway asynchronous.
+        </p>
+    </aside>
+    
+    <div>
+        By pushing this button wee get random data from our awesome service.  
+        <button (click)="pushMe()">Push Me!</button>
+    </div>
+    <div>
+        The ransom result is: <h1>{{randomResult}}</h1>.
+    </div>
+
+    <aside>
+        That was a simple example.  But let's now call an actual async service.
+        This one will make a network call to a remote (not that remote) network
+        and return some data.  Unfortunately, that service is badly programmed so we're going
+        to have to wait a moment to get the data.  But its ok, we're about to make
+        some async calls.
+    </aside>
+    <div>
+        Get some people data from a place far, far away:
+        <button class="btn btn-default" (click)="getPeople()">Get People</button>
+    </div>
+    <br />
+    <div *ngIf="isLoading" class="wait-spinner-container">
+        <img src="../../assets/spin.gif" class="wait-spinner"/>
+    </div>
+    <div *ngIf="people">
+        <table class="table table-stripped">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Age</th>
+                <tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of people">
+                    <td>{{p.firstName}}</td>
+                    <td>{{p.lastName}}</td>
+                    <td>{{p.age}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <aside>
+            Note the use of the two special template directives *ngIf and *ngFor
+            that we have not talked about yet. 
+        </aside>
+    </div>
+    <br /><br /><br /><br /><br />
+    <aside>
+    Notice that observables do not require an http connection.  We
+    can build an Observable and fully control how it works.  And subscribing 
+    to an Observable mens to get the Observable output until its complete.
+    </aside>
+    <div>
+    Stream this: <input [(ngModel)]="streamValue"/>
+    </div>
+    <br />
+    <button class="btn btn-default" (click)="startStream()">Start stream</button>
+    <br />
+    
+    <div *ngIf="streamResult" class="stream-result" [ngClass]="{'stream-error':hasStreamError, 'stream-complete': isStreamComplete}">
+        {{streamResult}}
+    </div>
+</rba-page-wrapper>

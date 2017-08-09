@@ -1,0 +1,41 @@
+<rba-page-wrapper panel-title="Directive Intro">
+  <aside>
+    Components can be really heavy.  For a lighter touch, directives are used.
+    A directive attaches a "process" to any element.  Directives can have
+    @Input parameters as well.
+    <br />
+    Its good practice to use directives instead of components whenever possible.
+  </aside>
+  
+  <p>
+  Founded in 2006, 
+  <span rba-highlight="A company with a hash tag for every occasion.">RBA</span> is an
+   <span rba-highlight="We like clear plaques with our name on it">award-winning</span> 
+   national <span rba-highlight="A binary tale of 10 states">digital</span> and 
+   <span rba-highlight="On premises to cloud and everywhere in between">technology</span> 
+   consultancy based in Minneapolis, Minnesota. 
+  </p>
+  <aside>
+    A directive can also add all sorts of business functionality.  For example, 
+    what if we needed the first character of every input to be upper case.
+    Or, what if we
+    need a user input that only allows for numbers?  A directive would be a perfect
+    way to achieve this.
+  </aside>
+  <div class="row">
+
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <div class="form-group">
+        <label>To Upper case first letter</label>
+        <input class="form-control" rba-input />
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <div class="form-group">
+        <label>Numeric Input</label>
+        <input class="form-control" rba-input-numeric />
+      </div>
+    </div>
+  </div>
+  </rba-page-wrapper>

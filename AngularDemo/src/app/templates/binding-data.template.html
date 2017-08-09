@@ -1,0 +1,70 @@
+<rba-page-wrapper panel-title="Binding Demo">
+
+    <aside>
+    <p>
+        Binding can be one way TO the template (data-binding), 
+        one way FROM the template (event), or two-way binding (models/forms), which
+        we will see later when we get to forms.
+       
+    <p>
+
+    <ul>
+        <li>&#91;&#93; surround a one way FROM the component to the template.</li>
+        <li>&#40;&#41; surround an event raised on the template that calls ANY typescript.</li>
+        <li>&#91;&#40;ngModel&#41;&#93; is a special call that us used for two-way binding.  This is a "Special sauce" tag.</li>
+    </ul>
+
+    <p>
+        One-way binding can be bound to input, and that input can
+        be updated over time.  Speaking of time, here is 
+        the current time: <span class="local-highlight">{{currentTime | date:'mediumTime'}}</span>
+    </p>
+
+    </aside>
+    <hr />
+    <p>
+        Event binding is a way of sending information from an "inner" scoped source to
+        an "outer scoped" target.  For example, we can take a text input field
+        and capture that in a property.
+    </p>
+    <div>
+        Input here for change: <input type="text" (change)="changeInput = $event.target.value"/>
+    </div>
+    <div>
+        And the captured input goes here: <span class="local-highlight">{{changeInput}}</span>
+    </div>
+    <br/>
+    <div>
+        Input here for keyup: <input type="text" (keyup)="keyupInput = $event.target.value"/>
+    </div>
+    <div>
+        And the captured input goes here: <span class="local-highlight">{{keyupInput}}</span>
+    </div>
+
+
+    <aside>
+        I agree that the partial yellow box is ugly.  We can fix that with binding too.
+        Bindings can control more than just display text.  It can be used to set any
+        attributes on any elements...
+    </aside>
+
+    <div>
+        Input here for change: <input type="text" (change)="changeInput2 = $event.target.value"/>
+    </div>
+    <div>
+        And the captured input goes here: <span class="local-highlight" [hidden]="!changeInput2">{{changeInput2}}</span> 
+        <span [hidden]="changeInput2"><--- see, no ugly box if no data</span>
+    </div>
+
+    <aside>
+        We can even control classes and styles using binding.  This is also a good place
+        to show how to tag controls with names that can be usesd directly.
+    </aside>
+    <div>
+        <input type="checkbox" #myCheckbox [(ngModel)]="isChecked"/>&nbsp;<label>Check this to see a class change below</label>
+    </div>
+    <div class="local-color-box" [ngClass]="{'checked-color-box': myCheckbox.checked}">
+        <span [hidden]="myCheckbox.checked">Not </span>checked
+    </div>
+    
+</rba-page-wrapper>

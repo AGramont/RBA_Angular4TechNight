@@ -1,0 +1,55 @@
+<div>
+    <h1>Edit Person</h1>
+    <form #myForm="ngForm" (ngSubmit)="onSubmit($event)">
+
+        <div class="form-group">
+            <label>Id</label>
+            <input class="form-control" readonly [value]="person.id"/>
+        </div>
+
+        <!-- First Name ------------------------------------- -->
+        <div class="form-group">
+            <label>First Name</label>
+            <input class="form-control" name="firstName" 
+                   #myFirstName="ngModel"
+                   [ngClass]="{'has-errors': myFirstName.invalid && (myFirstName.dirty || myFirstName.touched)}"
+                   [(ngModel)]="person.firstName"
+                   required maxlength="20" />
+        </div>
+        <div *ngIf="myFirstName.invalid && (myFirstName.dirty || myFirstName.touched)"
+            class="alert alert-danger">
+            <div *ngIf="myFirstName.errors.required">First Name is required.</div>
+            <div *ngIf="myFirstName.errors.maxlength">Max length is 20.</div>
+        </div>
+
+        <!-- Last Name ------------------------------------- -->
+        <div class="form-group">
+            <label>Last Name</label>
+            <input class="form-control" name="lastName" 
+                   #myLastName="ngModel" 
+                   [ngClass]="{'has-errors': myLastName.invalid && (myLastName.dirty || myLastName.touched)}"
+                   [(ngModel)]="person.lastName"
+                   required maxlength="30" />
+        </div>
+        <div *ngIf="myLastName.invalid && (myLastName.dirty || myLastName.touched)"
+            class="alert alert-danger">
+            <div *ngIf="myLastName.errors.required">Last Name is required.</div>
+            <div *ngIf="myLastName.errors.maxlength">Max length is 30.</div>
+        </div>
+
+        <!-- DOB -------------------------------------------- -->
+        <div class="form-group">
+            <label>Age</label>
+            <input class="form-control" name="age"  
+                   #myAge="ngModel"
+                   [ngClass]="{'has-errors': myAge.invalid && (myAge.dirty || myAge.touched)}"
+                   [(ngModel)]="person.age" required/>
+        </div>
+        <div *ngIf="myAge.invalid && (myAge.dirty || myAge.touched)"
+            class="alert alert-danger">
+            <div *ngIf="myAge.errors.required">Age is required.</div>
+        </div>
+
+        <button class="btn"  type="submit"[disabled]="myForm.invalid && myForm.dirty">Save</button>
+    </form>
+</div>
